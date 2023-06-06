@@ -1,10 +1,11 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/index.js', // Your main JS file
+    entry: './src/index.js',
     output: {
-        filename: 'main.js', // The output bundled JS file
-        path: path.resolve(__dirname, 'build'), // The output directory
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'build'),
+        publicPath: '/',
     },
     module: {
         rules: [
