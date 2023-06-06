@@ -4,7 +4,7 @@ module.exports = {
     entry: './src/index.js', // Your main JS file
     output: {
         filename: 'main.js', // The output bundled JS file
-        path: path.resolve(__dirname, 'dist'), // The output directory
+        path: path.resolve(__dirname, 'build'), // The output directory
     },
     module: {
         rules: [
