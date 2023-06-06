@@ -1,10 +1,11 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
     output: {
-        filename: 'main.js',
-        path: path.resolve(__dirname, 'build'),
+        filename: 'main.js', // The output bundled JS file
+        path: path.resolve(__dirname, 'build'), // The output directory
         publicPath: '/',
     },
     module: {
@@ -31,9 +32,21 @@ module.exports = {
                     },
                 ],
             },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                },
+            },
         ],
     },
     resolve: {
         extensions: ['.js', '.jsx'],
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+        }),
+    ],
 };
