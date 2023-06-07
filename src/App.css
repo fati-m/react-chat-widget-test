@@ -333,8 +333,8 @@ body {
   user-select: text;
   white-space: pre-wrap;
   word-wrap: break-word;
-  -webkit-user-modify: read-write;
-  -webkit-line-break: after-white-space;
+  -webkit-user-modify: read-write !important;
+  -webkit-line-break: after-white-space !important;
 }
 
 .rcw-input.focus-visible,
@@ -343,8 +343,8 @@ body {
 }
 
 .rcw-input[placeholder]:empty:before {
-  content: attr(placeholder);
-  color: grey;
+  content: attr(placeholder) !important;
+  color: grey !important;
 }
 
 .rcw-input[placeholder]:empty:before {
