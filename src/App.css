@@ -55,10 +55,6 @@
   color: #222;
   margin: 0 !important;
   display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
 }
 
 .rcw-message-text img {
@@ -111,6 +107,7 @@
 }
 
 .rcw-conversation-container .rcw-header {
+  font-weight: bold;
   background-color: #D400FC !important;
   border-radius: 10px 10px 0 0 !important;
   color: #fff !important;
