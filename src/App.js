@@ -21,31 +21,6 @@ function App() {
         profileAvatar={nostalLogo}
         title="Nostal Chatbot"
         subtitle="Here to help!"
-        styles={{
-          timestamp: { fontSize: '10px', marginTop: '5px' },
-          client: { timestamp: { alignSelf: 'flex-end' } },
-          messageText: { p: { margin: '0' } },
-          conversationContainer: {
-            header: {
-              backgroundColor: '#D400FC',
-              borderRadius: '10px 10px 0 0',
-              color: '#fff',
-              display: 'flex',
-              flexDirection: 'column',
-              textAlign: 'center',
-              padding: '15px 0 25px'
-            },
-            title: { fontSize: '24px', margin: '0', padding: '15px 0' }
-          },
-          newMessage: {
-            backgroundColor: '#fff',
-            border: '0',
-            borderRadius: '5px',
-            padding: '10px 5px',
-            resize: 'none',
-            width: 'calc(100% - 75px)'
-          }
-        }}
       />
     </div>
   );
