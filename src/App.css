@@ -281,18 +281,23 @@
 }
 
 .rcw-sender {
-  align-items: flex-end;
-  background-color: #f4f7f9;
-  border-radius: 0 0 10px 10px;
-  display: flex;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  max-height: 95px;
-  min-height: 45px;
-  overflow: hidden;
-  padding: 10px;
-  position: relative
+  align-items: flex-end !important;
+  background-color: #f4f7f9 !important;
+  border-radius: 0 0 10px 10px !important;
+  display: flex !important;
+  height: -webkit-max-content !important;
+  height: -moz-max-content !important;
+  height: max-content !important;
+  max-height: 95px !important;
+  min-height: 45px !important;
+  overflow: hidden !important;
+  padding: 10px !important;
+  position: relative !important;
+}
+
+body {
+  letter-spacing: 0.06rem;
+  line-height: inherit;
 }
 
 .rcw-sender.expand {
@@ -327,12 +332,19 @@
   -ms-user-select: text;
   user-select: text;
   white-space: pre-wrap;
-  word-wrap: break-word
+  word-wrap: break-word;
+  -webkit-user-modify: read-write;
+  -webkit-line-break: after-white-space;
 }
 
 .rcw-input.focus-visible,
 .rcw-input:focus-visible {
   outline: none
+}
+
+.rcw-input[placeholder]:empty:before {
+  content: attr(placeholder);
+  color: grey;
 }
 
 .rcw-input[placeholder]:empty:before {
