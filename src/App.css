@@ -46,6 +46,7 @@
 }
 
 .rcw-response .rcw-message-text {
+  color: #222;
   background-color: #f4f7f9;
   border-radius: 10px;
   max-width: 215px;
@@ -54,10 +55,12 @@
 }
 
 .rcw-message-text p {
+  color: #222;
   margin: 0 !important;
 }
 
 .rcw-message-text img {
+  color: #222;
   width: 100%;
   -o-object-fit: contain;
   object-fit: contain
