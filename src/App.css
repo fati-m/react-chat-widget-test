@@ -52,9 +52,13 @@
 }
 
 .rcw-message-text p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
   color: #222;
   margin: 0 !important;
-  display: block;
 }
 
 .rcw-message-text img {
@@ -107,7 +111,6 @@
 }
 
 .rcw-conversation-container .rcw-header {
-  font-weight: bold;
   background-color: #D400FC !important;
   border-radius: 10px 10px 0 0 !important;
   color: #fff !important;
@@ -118,6 +121,7 @@
 }
 
 .rcw-conversation-container .rcw-title {
+  font-weight: bold;
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif;
   font-size: 24px !important;
