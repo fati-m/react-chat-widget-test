@@ -57,6 +57,11 @@
 .rcw-message-text p {
   color: #222;
   margin: 0 !important;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 .rcw-message-text img {
@@ -116,11 +121,9 @@
   flex-direction: column !important;
   text-align: center !important;
   padding: 15px 0 25px !important;
-  font-weight: inherit;
 }
 
 .rcw-conversation-container .rcw-title {
-  font-weight: inherit;
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif;
   font-size: 24px !important;
