@@ -22,10 +22,7 @@
 }
 
 .rcw-client .rcw-message-text {
-  color: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  font-family: inherit;
+  color: #222;
   background-color: #DC6FA6;
   border-radius: 10px;
   max-width: 215px;
@@ -121,9 +118,11 @@
   flex-direction: column !important;
   text-align: center !important;
   padding: 15px 0 25px !important;
+  font-weight: initial;
 }
 
 .rcw-conversation-container .rcw-title {
+  font-weight: initial;
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif;
   font-size: 24px !important;
