@@ -170,6 +170,11 @@
 }
 
 @media screen and (max-width:800px) {
+  .rcw-conversation-container {
+    max-width: 100vw !important;
+    margin-top: 50px;
+  }
+
   .rcw-conversation-container .rcw-header {
     border-radius: 0;
     flex-shrink: 0;
