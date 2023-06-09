@@ -172,7 +172,7 @@
 @media screen and (max-width:800px) {
   .rcw-conversation-container {
     max-width: 100vw !important;
-    margin-top: 100px;
+    margin-top: 30vw;
     margin-bottom: 10px;
   }
 
