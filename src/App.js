@@ -21,6 +21,7 @@ function App() {
         profileAvatar={nostalLogo}
         title="Nostal Chatbot"
         subtitle="Here to help!"
+        emojis="true"
       />
     </div>
   );
