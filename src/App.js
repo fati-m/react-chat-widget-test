@@ -3,19 +3,46 @@ import { Widget, addResponseMessage } from 'react-chat-widget';
 import { db, doc, getDoc } from './firebase';
 import 'firebase/firestore';
 import './App.css';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [widgetParams, setWidgetParams] = useState({});
   const urlParams = new URLSearchParams(window.location.search);
   const businessId = urlParams.get('businessId');
   const [errorMessage, setErrorMessage] = useState(null);
+  const [uid, setUid] = useState(uuidv4());
+  const [webSocket, setWebSocket] = useState(new WebSocket("wss://oyb4zhl78j.execute-api.us-east-2.amazonaws.com/test/"));
+
 
   const handleNewUserMessage = (newMessage) => {
     console.log(`New message incoming! ${newMessage}`);
-    // Now send the message through the backend API
+    // Send the message to the server via WebSocket
+    webSocket.send(JSON.stringify({ text: newMessage, uid: uid }));
   };
 
   useEffect(() => {
+    webSocket.onopen = (event) => {
+      webSocket.send(JSON.stringify({ action: "sendmessage", message: "hi", id: uid }))
+    }
+    webSocket.onmessage = (event) => {
+      console.log("This is a message coming from server");
+      console.log(event.data);
+      const dataObject = JSON.parse(event.data);
+
+      // Example handling, adapt it as needed
+
+      addResponseMessage(dataObject.message);
+      // Other handling code...
+    };
+
+    webSocket.onclose = (event) => {
+      // Reconnection logic
+    };
+
+    webSocket.onerror = (err) => {
+      console.log('Socket encountered error: ', err.message, 'Closing socket');
+      webSocket.close();
+    };
     const fetchData = async () => {
       if (businessId) {  // Check if a businessId is provided
         try {
@@ -24,7 +51,7 @@ function App() {
           if (docSnap.exists()) {
             const data = docSnap.data();
 
-            addResponseMessage(data.greeting);
+            // addResponseMessage(data.greeting);
 
             setWidgetParams({
               titleBgColor: data.titleBgColor,
@@ -75,11 +102,14 @@ function App() {
           console.log('Error getting document:', error);
         }
       } else {
-        setErrorMessage('No businessId provided. This is not the correct link for your chat bot. Your link should have this structure "https://example-link?businessId=1"');
+        setErrorMessage('No businessId provided. This is not the correct link for your chat bot. Your link should have this structure "https://react-chat-widget-test2.vercel.app/?businessId=1"');
       }
     };
 
     fetchData();
+    return () => {
+      webSocket.close();
+    };
   }, [businessId]);
 
   if (errorMessage) {
