@@ -16,7 +16,6 @@ function App() {
 
   const handleNewUserMessage = (newMessage) => {
     console.log(`New message incoming! ${newMessage}`);
-    // Send the message to the server via WebSocket
     webSocket.send(JSON.stringify({ text: newMessage, uid: uid }));
   };
 
@@ -29,14 +28,11 @@ function App() {
       console.log(event.data);
       const dataObject = JSON.parse(event.data);
 
-      // Example handling, adapt it as needed
 
       addResponseMessage(dataObject.message);
-      // Other handling code...
     };
 
     webSocket.onclose = (event) => {
-      // Reconnection logic
     };
 
     webSocket.onerror = (err) => {
@@ -44,7 +40,7 @@ function App() {
       webSocket.close();
     };
     const fetchData = async () => {
-      if (businessId) {  // Check if a businessId is provided
+      if (businessId) {
         try {
           const docRef = doc(db, 'businesses', businessId);
           const docSnap = await getDoc(docRef);
